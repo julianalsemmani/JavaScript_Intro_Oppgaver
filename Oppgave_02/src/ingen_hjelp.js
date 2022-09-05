@@ -83,12 +83,10 @@ const searchUser = () => {
     usersUl.innerHTML = ""
     showUsers(searchedUsers);
 }
-
-filterBtn.addEventListener("click", (e) => {
-    searchUser();
-})
 // TODO: Lag en funksjon som håndterer filteret og oppdaterer grensesnittet med resultatet fra filteret
-
+filterBtn.addEventListener("click", (e) => {
+    //searchUser();
+})
 // TODO: Lytt til tastatur klikk på søkefeltet, den skal trigge søkefunksjonen (handleSearch)
 
 // TODO: Lytt til klikk på filter-knappen, den skal trigge filterfunksjonen (handleFilter)
