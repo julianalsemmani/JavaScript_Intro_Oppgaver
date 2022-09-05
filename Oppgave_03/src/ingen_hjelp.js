@@ -9,17 +9,23 @@ let position = 0;
 let word = "";
 
 // TODO: Lag en liste med ulike ord
-let wordList = ["Test", "Test 2", "Test 3"];
+let wordList = ["Car", "safety", "systems", "have", "come", "a", "long", "way", "but", "he", "was", "out", "to", "prove", "they", "could", "be", "outsmarted"];
+
 // TODO: Hent ut HTML #id og knappen
 let wordOuput = document.getElementById("word");
 let letterOutput = document.getElementById("letter");
 let guessOutput = document.getElementById("wrongs");
 let button = document.querySelector("button");
 
+const getRandomWord = () => {
+    let randomWord = wordList.pop(wordList[Math.floor(Math.random() * wordList.length)]);
+    return randomWord;
+}
+
 // TODO: Lag en funksjon for å skrive ut ordet som brukeren skal skrive eller en medling om at det ikke er flere ord igjen
 const showWord = () => {
     if (wordList.length > 0) {
-        word = wordList.shift();
+        word = getRandomWord().toLowerCase();
         wordOuput.innerHTML = word;
         letterOutput.innerHTML = word[position];
     } else {
@@ -58,9 +64,11 @@ const updateUI = () => {
     showWord();
 }
 // - Vise antall feil
-
+guessOutput.innerHTML = `Total wrong guesses: ${wrongGuesses}`;
 // - Vise ordet vi skal skrive
+wordOuput.innerHTML = word;
 // - Vise hvor langt vi har kommet (posisjonen) på det ordet vi skal skrive
+letterOutput.innerHTML = word[position];
 // TODO: Lytt til keyup på window
 window.addEventListener("keyup", handleKey);
 // TODO: Lytt til klikk på knappen. Klikket skal gjøre knappen "disabled" samt starte oppgaven
