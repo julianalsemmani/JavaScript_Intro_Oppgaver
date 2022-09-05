@@ -3,10 +3,12 @@
 // TODO: Bruk getElementById til å hente HTML-elementene med #id
 let guessOutput = document.getElementById("guess");
 let numbersOutput = document.getElementById("numbers")
+
 // TODO: Bruk querySelector til å hente knappen
 let button = document.querySelector("button");
+
 // TODO: Lag en liste med tallene som skal sorteres
-let numbers = [1, 5, 3, 2, 4, 6, 7, 8, 9, 10];
+let numbers = [1, 500, 343, 928, 234, 29, 53, 843, 432, 647];
 
 const sortFromSmallToBig = () => {
     return numbers.sort((a, b) => a - b);
