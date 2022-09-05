@@ -26,8 +26,8 @@ const getRandomWord = () => {
 const showWord = () => {
     if (wordList.length > 0) {
         word = getRandomWord().toLowerCase();
-        wordOuput.innerHTML = word;
-        letterOutput.innerHTML = word[position];
+        wordOuput.innerHTML = `Word: ${word}`;	
+        letterOutput.innerHTML = `Current letter: ${word[position]}`;;
     } else {
         wordOuput.innerHTML = "No more words";
     }
@@ -42,10 +42,10 @@ const changeWord = () => {
 const checkLetter = (e) => {
     if (e.key === word[position]) {
         position++;
-        letterOutput.innerHTML = word[position];
+        letterOutput.innerHTML = `Current letter: ${word[position]}`;
     } else {
         wrongGuesses++;
-        guessOutput.innerHTML = wrongGuesses;
+        guessOutput.innerHTML = `Total wrong guesses: ${wrongGuesses}`;
     }
 }
 // TODO: Lag en funksjon for å sjekke om posisjonen vi er på er lik lengden på ordet vi skal skrive. Det betyr at vi er ferdig med ordet og kan bytte ord
@@ -62,13 +62,13 @@ const handleKey = (e) => {
 // TODO: Lag en funksjon som kan brukes til å oppdatere grensesnittet
 const updateUI = () => {
     showWord();
+    guessOutput.innerHTML = `Total wrong guesses: ${wrongGuesses}`;
+    wordOuput.innerHTML = `Word: ${word}`;
+    letterOutput.innerHTML = `Current letter: ${word[position]}`;
 }
 // - Vise antall feil
-guessOutput.innerHTML = `Total wrong guesses: ${wrongGuesses}`;
 // - Vise ordet vi skal skrive
-wordOuput.innerHTML = word;
 // - Vise hvor langt vi har kommet (posisjonen) på det ordet vi skal skrive
-letterOutput.innerHTML = word[position];
 // TODO: Lytt til keyup på window
 window.addEventListener("keyup", handleKey);
 // TODO: Lytt til klikk på knappen. Klikket skal gjøre knappen "disabled" samt starte oppgaven
