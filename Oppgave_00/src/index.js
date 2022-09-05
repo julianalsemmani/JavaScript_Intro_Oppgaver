@@ -29,7 +29,7 @@ writeList.addEventListener("click", (e) => {
         li.innerHTML = myList[i];
         ul.appendChild(li)
     }
-})
+});
 
 // Oppgave 5
 var select = document.getElementById("select")
@@ -41,7 +41,7 @@ createBtn.addEventListener("click", (e) => {
     var element = document.createElement(select.value);
     element.innerHTML = text.value;
     placeholder.appendChild(element)
-})
+});
 
 // Oppgave 6
 var list = document.getElementById("list")
@@ -49,7 +49,7 @@ var removeLiBtn = document.getElementById("remove-li")
 
 removeLiBtn.addEventListener("click", (e) => {
     list.removeChild(list.lastElementChild)
-})
+});
 // Oppgave 7
 var nameInput = document.getElementById("name")
 var orderBtn = document.getElementById("order")
@@ -57,7 +57,7 @@ var orderBtn = document.getElementById("order")
 nameInput.addEventListener("keyup", (e) => {
     if (nameInput.value.length > 4)
         orderBtn.disabled = true;
-})
+});
 
 // Oppgave 8
 var allChildren = document.querySelectorAll(".children li")
@@ -71,4 +71,4 @@ colorBtn.addEventListener("click", (e) => {
             allChildren[i].style.border = "5px solid pink"
         }
     }
-})
+});
