@@ -73,20 +73,24 @@ const showUsers = (arr) => {
 showUsers(users)
 
 // TODO: Lag en funksjon som håndterer søket og oppdaterer grensesnittet med resultatet fra søket
-const searchUser = () => {
+const searchUser = (e) => {
     let searchedUsers = []
-    for (var i = 0; i < users.length; i++) {
-        if (users[i].name.toLowerCase().includes(nameInput.value.toLowerCase())) {
-            searchedUsers.push(users[i])
-        }
-    }
+    searchedUsers = users.filter((user) => {
+        return user.name.toLowerCase().includes(e.target.value.toLowerCase())
+    })
     usersUl.innerHTML = ""
-    showUsers(searchedUsers);
+    showUsers(searchedUsers)
 }
 // TODO: Lag en funksjon som håndterer filteret og oppdaterer grensesnittet med resultatet fra filteret
-filterBtn.addEventListener("click", (e) => {
-    //searchUser();
-})
+const filterUser = (e) => {
+    let filteredUsers = users.filter((user) => {
+        return user.age > ageInput.value
+    })
+    usersUl.innerHTML = ""
+    showUsers(filteredUsers)
+}
 // TODO: Lytt til tastatur klikk på søkefeltet, den skal trigge søkefunksjonen (handleSearch)
+nameInput.addEventListener("keyup", searchUser);
 
 // TODO: Lytt til klikk på filter-knappen, den skal trigge filterfunksjonen (handleFilter)
+filterBtn.addEventListener("click", filterUser);
